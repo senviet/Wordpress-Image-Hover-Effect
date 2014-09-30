@@ -1,0 +1,132 @@
+/*
+Theme Name:     Divi Child Theme
+Theme URI:      http://muatocroi.com/
+Description:    Child theme for the Divi theme 
+Author:         Nguyễn Văn Được
+Author URI:     http://muatocroi.com/about/
+Template:       twentytwelve
+Version:        1.0.0
+*/
+@import url("../twentytwelve/style.css");
+
+/* Image Hover
+----------------------------------------------------------*/
+.sv_container img, .sv_container .figcaption, .sv_container .caption{
+    margin: 0;
+    box-sizing: border-box;
+}
+.sv_container{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+}
+.sv_container img{
+    line-height: 0;
+    max-width: 100%;
+    display: block;
+    position: relative;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.sv_container .figcaption{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background: #2c3f52;
+    color: #ed4e6e;
+    display: block;
+}
+.sv_container .caption{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 19px;
+    color: #fff;
+    display: block;
+}
+.sv_container .description{
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    color: #ed4e6e;
+}
+/*Style 1*/
+.hover-style-1{
+    overflow: hidden;
+}
+.hover-style-1 .figcaption{
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.hover-style-1 .caption, .hover-style-1 .description{
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    transform: translateY(50px);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.hover-style-1 .figcaption{
+    height: auto;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.6s, opacity 0.1s 0.6s;
+    -moz-transition: -moz-transform 0.6s, opacity 0.1s 0.6s;
+    transition: transform 0.6s, opacity 0.1s 0.6s;
+}
+.hover-style-1 .caption{
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    transition: transform 0.6s;
+}
+.hover-style-1 .description{
+    -webkit-transition: -webkit-transform 0.4s;
+    -moz-transition: -moz-transform 0.4s;
+    transition: transform 0.4s;
+}
+.hover-style-1 img {
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    transition: transform 0.6s;
+}
+.hover-style-1:hover img{
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+}
+.hover-style-1:hover .figcaption, .hover-style-1:hover .caption, .hover-style-1:hover, .hover-style-1:hover .description{
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+
+}
+.hover-style-1:hover .figcaption{
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.4s;
+    -moz-transition: -moz-transform 0.4s;
+    transition: transform 0.4s;
+}
+.hover-style-1:hover .caption{
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    transition: transform 0.6s;
+}
+.hover-style-1:hover .description{
+    -webkit-transition: -webkit-transform 0.8s;
+    -moz-transition: -moz-transform 0.8s;
+    transition: transform 0.8s;
+}
