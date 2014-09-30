@@ -1,22 +1,49 @@
 <?php
-add_filter('img_caption_shortcode', 'sv_img_caption_shortcode', 10, 3);
-function sv_img_caption_shortcode($output ,$atts, $content = null)
+class SV_Image_Hover_Shortcode
 {
+    public static $isEnqueueStyle;
+
+    public static function getInstance()
+    {
+        static $instance = null;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
+
+    protected function __construct()
+    {
+        self::$isEnqueueStyle = false;
+    }
+
+function init()
+{
+    add_filter('img_caption_shortcode', array($this ,'img_caption_shortcode'), 10, 3);
+}
+function img_caption_shortcode($output, $atts, $content = null)
+{
+    if(!self::$isEnqueueStyle)
+    {
+        self::$isEnqueueStyle = true;
+        wp_enqueue_style( "image-hover-style", plugins_url("style.css",__FILE__), array(), null, "screen");
+    }
     if ($atts['width'] < 1 || empty($atts['caption']))
         return $content;
 
     if (!empty($atts['id']))
         $atts['id'] = 'id="' . esc_attr($atts['id']) . '" ';
     $id = explode('_', $atts['id'])[1];
-    $meta = get_post( $id );
-    $description = ($meta->post_content?'<span class="description">' . $meta->post_content . '</span>':'');
+    $meta = get_post($id);
+    $description = ($meta->post_content ? '<span class="description">' . $meta->post_content . '</span>' : '');
     $class = trim($atts['align'] . ' ' . $atts['class'] . ' ' . 'sv_container hover-style-1');
     if (current_theme_supports('html5', 'caption')) {
         return '<figure ' . $atts['id'] . 'style="width: ' . (int)$atts['width'] . 'px;" class="' . esc_attr($class) . '">'
         . do_shortcode($content) . '<figcaption class="figcaption"><span class="caption">' . $atts['caption'] . '</span>' . $description . '</figcaption></figure>';
     }
 
-    $caption_width =$atts['width'];
+    $caption_width = $atts['width'];
 
     /**
      * Filter the width of an image's caption.
@@ -41,4 +68,5 @@ function sv_img_caption_shortcode($output ,$atts, $content = null)
 
     return '<div ' . $atts['id'] . $style . 'class="' . esc_attr($class) . '">'
     . do_shortcode($content) . '<div class="figcaption"><span class="caption">' . $atts['caption'] . '</span>' . $description . '</div></div>';
+}
 }

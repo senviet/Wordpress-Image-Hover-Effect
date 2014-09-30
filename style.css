@@ -1,14 +1,3 @@
-/*
-Theme Name:     Divi Child Theme
-Theme URI:      http://muatocroi.com/
-Description:    Child theme for the Divi theme 
-Author:         Nguyễn Văn Được
-Author URI:     http://muatocroi.com/about/
-Template:       twentytwelve
-Version:        1.0.0
-*/
-@import url("../twentytwelve/style.css");
-
 /* Image Hover
 ----------------------------------------------------------*/
 .sv_container img, .sv_container .figcaption, .sv_container .caption{
